@@ -1,0 +1,39 @@
+<%- include('ek/header', {bot, user, path}) %>
+
+<span class="badge badge-pill badge-success" style="user-select:none;">Kodu ekleyen: <%=bot.ayar.fetch(`kodlar.${ad}.ekleyen`)%></span>
+<span class="badge badge-pill badge-success" style="user-select:none;">Kod adı: <%=bot.ayar.fetch(`kodlar.${ad}.kodadı`)%></span>
+<span class="badge badge-pill badge-success" style="user-select:none;">Kod dili: <%=bot.ayar.fetch(`kodlar.${ad}.koddili`)%></span>
+          <% if (user) { %>
+          <% if(bot.ayar.fetch(`kodlar.${ad}.ekleyen`) === user.username) { %>
+        <a href="/kod/<%=bot.ayar.fetch(`kodlar.${ad}.kodadı`)%>/sil"><button class="btn btn-success">Sil</button></a>
+        <% } %>
+        <% } %>
+          <% if(bot.yetkililer.includes(user.id)) { %>
+        <a href="/kod/<%=bot.ayar.fetch(`kodlar.${ad}.kodadı`)%>/sil"><button class="btn btn-success">(Yetkili) Sil</button></a>
+        <% } %>
+
+<br><br>
+<label>Kod:</label>
+
+<pre>
+<code>
+<%=bot.ayar.fetch(`kodlar.${ad}.kodacik`)%>
+</code>
+</pre>
+
+<script>
+
+(function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+<% include ./ek/footer %>

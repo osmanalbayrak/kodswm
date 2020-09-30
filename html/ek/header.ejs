@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="msapplication-TileColor" content="#00a1ff">
+<meta name="msapplication-TileImage" content="<%=bot.user.avatarURL%>">
+<meta name="theme-color" content="#e62f2f">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="CodePack Kod paylaşım bot yapım için kodlar paylaşımı">
+<meta name="keywords" content="kod discord.js discord.js-commando">
+<meta property="og:title" content="CodePack Kod Paylaşım Sitesi" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="" />
+<meta property="og:description" content="CodePack bot yapım için kodlar paylaşımı" />
+<meta property="og:image" content="<%=bot.user.avatarURL%>" />
+<meta property="og:site_name" content="CodePack bot yapım için kodlar paylaşımı">
+<meta itemprop="name" content="CodePack Kod paylaşım bot yapım için kodlar paylaşımı ">
+<meta itemprop="description" content="CodePack Kod paylaşım bot yapım için kodlar paylaşımı">
+<meta itemprop="image" content="<%=bot.user.avatarURL%>">
+
+  <meta charset="UTF-8">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+ <link rel="stylesheet" href="/css/genel.css" />
+	<link rel="icon" href="<%=bot.user.avatarURL%>">
+	<title>CodePack Kod Paylaşım</title>
+</head>
+ 
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand animated infinite" href="/">CodePack Kod Paylaşım</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if (!user) { %>
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://discord.gg/yaHrdvk">Sunucu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/kodlar">Kodlar</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/kodgonder">Kod Gönder</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/kodiste">Kod İste</a>
+      </li>
+                  <li class="nav-item">
+        <a class="nav-link" href="/giris">Giriş Yap</a>
+      </li>
+      <% }else { %>
+           <li class="nav-item active">
+        <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+<a class="nav-link" href="https://discord.gg/yaHrdvk">Sunucu</a>
+</li>
+      <li class="nav-item">
+        <a class="nav-link" href="/kodlar">Kodlar</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/kodgonder">Kod Gönder</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/kodiste">Kod İste</a>
+      </li>
+                  <li class="nav-item">
+        <a class="nav-link" href="/cikis">Çıkış Yap</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+    
+<br> 
+  <div class="container">

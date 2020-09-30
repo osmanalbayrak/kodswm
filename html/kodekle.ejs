@@ -1,0 +1,38 @@
+<%- include('ek/header', {bot, user, path}) %>
+<script type="text/javascript">
+document.getElementById("kodgon").classList.add('active');
+</script>
+<form method="post">
+  <div class="form-group">
+    <label for="kodadı" style="color:#fff;">Kod adını yazın</label>
+    <input type="text" class="form-control" name="kodadı" id="kodadı" aria-describedby="emailHelp" placeholder="Kod adını yazın" required>
+  </div>
+  <div class="form-kodacik">
+    <label for="kodacik" style="color:#fff;">Lütfen kodunuzu buraya yazın</label>
+     <textarea class="form-control" name="kodacik" id="kodacik" rows="10" required></textarea>
+  </div>
+  
+  <label for="koddili" style="color:#fff;">Kod Dili</label>
+  <select class="custom-select custom-select-lg mb-3" name="koddili" id="koddili" required="required">
+  <option disabled="" selected="">Lütfen bir kod dili seçin.</option>
+  <option value="Discord.js">Discord.js</option>
+  <option value="Discord.js-commando">Discord.js-commando</option>
+</select>
+  
+  
+              <div class="form-group">
+             <label style="color:#fff;">Kategoriyi Seç</label>
+                             <select class="form-control" name="kodkategori" id="kodkategori" required='required'> 
+                                <option value="" disabled selected>Kanal seçiniz</option>
+                                <%let guild = bot.guilds.get('706955949277052948')%>
+                                <%for (var i = 0; i < guild.channels.filter(c => c.type==='category').size; i++){%>
+                                <option value="<%=guild.channels.filter(c => c.type==='category').array()[i].name%>">#<%=guild.channels.filter(c => c.type==='category').array()[i].name%></option>
+                                <%  } %>
+              </select>
+                        </div>
+  
+<br>
+  <button type="submit" class="btn btn-dark" style="margin-bottom:15px;">Kod Gönder</button><br>
+</form>
+
+<% include ./ek/footer %>

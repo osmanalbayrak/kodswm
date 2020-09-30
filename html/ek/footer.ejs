@@ -1,0 +1,20 @@
+</div>
+
+
+<script>if (MyBB) { $([document, window]).bind("load", function() { MyBB.detectDSTChange('3'); }); }</script>
+<script src="https://unpkg.com/tippy.js@2.6.0/dist/tippy.all.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  // Tippy
+  tippy('[title]', {
+    arrow: true,
+    arrowType: 'round',
+    animation: 'scale'
+  });
+
+  // Running Task
+  $('.running-task').delay(2500).fadeOut(100);
+
+});
+</script>

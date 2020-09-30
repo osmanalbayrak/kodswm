@@ -1,0 +1,51 @@
+<%- include('ek/header', {bot, user, path}) %>
+<script type="text/javascript">
+document.getElementById("kodlars").classList.add('active');
+</script>
+<input type="search" placeholder="Kod ara..." id="ara" name="ara">
+
+<table class="table">
+    <% if (bot.ayar.has('kodlar')) { %>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Ekleyen</th>
+      <th scope="col">Kod Adı</th>
+      <th scope="col">Kod Dili</th>
+      <th scope="col">Görüntüle</th>  
+    </tr>
+  </thead>
+  <% const sorted = Object.keys(bot.ayar.fetch('kodlar')).sort((a, b) => {return}) %>
+  <% const top = sorted.splice(0, Object.keys(bot.ayar.fetch('kodlar')).length) %>
+  <% const map = top.map(x=>x) %>
+	<% for(var i = 0; i < Object.keys(bot.ayar.fetch('kodlar')).length; i++) { %>
+  <% let ad = map[i] %>
+  <tbody>
+    <tr class="kodlarburda">
+      <td><%=bot.ayar.fetch(`kodlar.${ad}.ekleyen`)%></td>
+      <td><%=bot.ayar.fetch(`kodlar.${ad}.kodadı`)%></td>
+      <td><%=bot.ayar.fetch(`kodlar.${ad}.koddili`)%></td>
+      <td><a class="btn btn-success" href="/kod/<%=bot.ayar.fetch(`kodlar.${ad}.kodadı`)%>">Görüntüle</a></td>
+    </tr>
+  </tbody>
+               <% } %>
+<% } else {%>
+   <center><h3 style="color:#222">
+     Sistemde kod bulunmuyor.
+     </h3></center>
+ <% } %>
+</table>
+
+<script>
+$(document).ready(function(){
+ $("#ara").keyup(function(){
+    var value = $(this).val().toLowerCase();
+    $("table").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+
+<% include ./ek/footer %>
